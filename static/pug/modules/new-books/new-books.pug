@@ -1,14 +1,16 @@
+include new-books-data
+
 section.new-books
     .container
         h2.new-books__title.section__title Новинки
         ul.books
             li.books__item
                 .books__inner
-                    img.books__img(src=`${pathContentImg}a-life-of-pleasure.jpg` alt='Фото книги - "Жизнь в удовольствие"' width="275" height="320")
+                    img.books__img(src=newBooks[0].img alt='Фото книги - "Жизнь в удовольствие"' width="275" height="320")
                     .books__box
-                        p.books__author Палиенко А.
-                        h3.books__name Жизнь в удовольствие
-                        p.books__description Автор собрал в этой книге все свои знания, актуальные в современном мире
+                        p.books__author #{newBooks[0].author}
+                        h3.books__name #{newBooks[0].title}
+                        p.books__description #{newBooks[0].description}
                         p.books__stars
                             .
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -17,10 +19,10 @@ section.new-books
                                 fill="white"
                                 stroke="white"/>
                                 </svg>
-                            span.books__star 3.5
+                            span.books__star #{newBooks[0].score}
                         .books__wrapper
-                            a.books__link(href="#") Подробнее
-                            span.books__pages 208 страниц
+                            a.books__link(href=`${newBooks[0].link}`) Подробнее
+                            span.books__pages #{newBooks[0].pagesCount} страниц
             li.books__item
                 .books__inner
                     img.books__img(src=`${pathContentImg}book-kingdoms.jpg` alt='Фото книги - "Королевство"' width="275" height="320")
