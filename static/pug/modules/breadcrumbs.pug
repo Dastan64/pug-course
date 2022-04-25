@@ -1,5 +1,15 @@
+mixin breadcrumb(text, href, mod)
+    li.breadcrumbs__item
+        if (href)
+            a.breadcrumbs__link(href=href class=mod ? 'breadcrumbs__link--slash' : "") #{text}
+        else
+            span.breadcrumbs__text #{text}
+
 ul.breadcrumbs__list
-    li.breadcrumbs__item
-        a.breadcrumbs__link(href='index.html') Главная страница
-    li.breadcrumbs__item
-        span.breadcrumbs__text Каталог книг
+    if pageClass === 'catalog-page'
+        +breadcrumb('Главная страница','index.html')
+        +breadcrumb('Каталог книг')
+    if pageClass === 'book-page'
+        +breadcrumb('Главная страница','index.html')
+        +breadcrumb('Каталог книг','catalog.html', true)
+        +breadcrumb('Железный король')
