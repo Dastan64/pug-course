@@ -1,7 +1,7 @@
 header.header
     .container
         .header__wrapper
-            a.header__logo-link
+            a.header__logo-link(href=pageClass=== "index-page" ? false : "index.html")
                 span.visually-hidden Логотип сайта "По полочкам"
                 .
                     <svg class="header__logo" width="230" height="35" viewBox="0 0 230 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -82,10 +82,11 @@ header.header
             .nav__content
                 ul.nav__list
                     li.nav__item
-                        a.nav__link(href="index.html") Главная
+                        a.nav__link(class=pageClass === "index-page" ? "nav__link--active" : false href=pageClass === "index-page" ? false : "index.html") Главная
                     li.nav__item
-                        a.nav__link(href="catalog.html") Каталог книг
+                        a.nav__link(class=pageClass === "catalog-page" ? "nav__link--active" : false href=pageClass === "catalog-page" ? false : "catalog.html") Каталог книг
                     li.nav__item
-                        a.nav__link(href="#") Оплата и доставка
+                        a.nav__link(class=pageClass === "payment-delivery-page" ? "nav__link--active" : false href=pageClass === "payment-delivery-page" ? false : "payment-delivery.html") Оплата и доставка
                     li.nav__item
-                        a.nav__link(href="#") Контакты
+                        a.nav__link(class=pageClass === "contact-page" ? "nav__link--active" : false href=pageClass === "contact-page" ? false : "contact.html") Контакты
+                include user-nav/user-nav
